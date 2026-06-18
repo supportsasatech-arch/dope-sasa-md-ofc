@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@whiskeysockets/baileys": "^6.7.7",
-    "@groq/sdk": "^0.15.0",
+    "@groq/sdk": "^0.9.0",
     "axios": "^1.7.9",
     "canvas": "^3.1.0",
     "chalk": "^5.4.1",
