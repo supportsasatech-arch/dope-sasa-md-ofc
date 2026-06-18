@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connect Device – DOPE SASA MD</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container glass fade-in" style="max-width: 700px;">
+    <h2>📱 Pair Your WhatsApp</h2>
+
+    <!-- Tab switches -->
+    <div class="pair-tabs">
+      <button class="tab-btn active" onclick="switchTab('qr')">📷 QR Code</button>
+      <button class="tab-btn" onclick="switchTab('paircode')">🔢 Pair Code</button>
+    </div>
+
+    <!-- QR Code Tab -->
+    <div id="qr-tab" class="pair-tab-content active">
+      <div class="qr-container">
+        <img id="qrImage" src="" alt="QR Code" class="qr-image" style="display:none;">
+        <div id="qrPlaceholder" class="qr-placeholder">
+          <span>QR code will appear here</span>
+        </div>
+        <div id="expiryBar" class="progress-bar" style="display:none;">
+          <div class="progress-fill"></div>
+        </div>
+        <div id="qrCountdown" class="countdown-text">20s</div>
+        <button class="btn-primary" onclick="startQRPairing()">🔄 Generate QR Code</button>
+      </div>
+    </div>
+
+    <!-- Pair Code Tab -->
+    <div id="paircode-tab" class="pair-tab-content">
+      <div class="pair-code-form">
+        <div class="country-selector">
+          <label>Country Code</label>
+          <select id="countryCode">
+            <option value="1">+1 (US)</option>
+            <option value="44">+44 (UK)</option>
+            <option value="91">+91 (India)</option>
+            <option value="94" selected>+94 (Sri Lanka)</option>
+            <option value="92">+92 (Pakistan)</option>
+            <option value="62">+62 (Indonesia)</option>
+            <option value="55">+55 (Brazil)</option>
+            <option value="234">+234 (Nigeria)</option>
+            <!-- more if needed -->
+          </select>
+        </div>
+        <div class="phone-input">
+          <label>WhatsApp Number (without country code)</label>
+          <input type="text" id="phoneNumber" placeholder="771234567" maxlength="15">
+        </div>
+        <button class="btn-primary" onclick="startPairCode()">🔢 Get Pair Code</button>
+        <div id="pairCodeResult" class="pair-code-display" style="display:none;">
+          <input type="text" id="pairCode" readonly placeholder="Your pair code">
+          <button class="btn-copy" onclick="copyPairCode()">📋 Copy</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="statusMessage" class="status-msg"></div>
+    <div id="loadingSpinner" class="spinner" style="display:none;"></div>
+  </div>
+
+  <div class="theme-toggle" onclick="toggleTheme()">🌓</div>
+
+  <script src="app.js"></script>
+  <script src="pair.js"></script>
+</body>
+      </html>
